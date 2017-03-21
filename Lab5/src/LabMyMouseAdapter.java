@@ -115,17 +115,17 @@ public class LabMyMouseAdapter extends MouseAdapter {
 								System.out.println("Top left click");
 								
 								for(int i =1; i<10; i++){	
-									currentColor = myPanel.colorArray[i][i];
-									for (int h=0; h<5; h++){
+									currentColor = myPanel.colorArray[i][i];// unchanged
+									/*for (int h=0; h<5; h++){
 										if(colorComparisonArray[h].equals(currentColor)){
 											colorComparisionPointer = h;
 											break;
 										}
 										else colorComparisionPointer = 6;
-									}
+									}*/
 									do{//Changes the color to be painted if it's the same color as the current square.
 										colorCaseToPaint=generator.nextInt(5); 
-									}while (colorCaseToPaint==colorComparisionPointer);
+									
 								
 									switch (colorCaseToPaint) {
 									case 0:
@@ -143,7 +143,7 @@ public class LabMyMouseAdapter extends MouseAdapter {
 									case 4:
 										newColor = new Color(0xB57EDC);   //Lavender (from http://simple.wikipedia.org/wiki/List_of_colors)
 										break;
-									}
+									}}while (newColor.equals(currentColor));
 								myPanel.colorArray[i][i] = newColor;
 								myPanel.repaint();
 								}
